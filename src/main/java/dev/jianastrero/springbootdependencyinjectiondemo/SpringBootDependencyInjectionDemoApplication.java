@@ -37,6 +37,10 @@ public class SpringBootDependencyInjectionDemoApplication {
         injectMe2.printMessage();
 
         // Get the bean for InjectToMe
+        // This should be the same as the first one
+        // Because it is a singleton
+        // But since we changed the message for injectMe
+        // The message for the injectMe inside injectToMe2 is also changed
         InjectToMe injectToMe2 = context.getBean(InjectToMe.class);
         System.out.println("> injectToMe2: " + injectToMe2);
         injectToMe2.printMessage();
