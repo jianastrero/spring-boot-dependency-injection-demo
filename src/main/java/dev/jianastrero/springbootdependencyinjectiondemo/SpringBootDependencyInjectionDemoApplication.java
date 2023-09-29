@@ -14,16 +14,16 @@ public class SpringBootDependencyInjectionDemoApplication {
         // This is where all the beans are stored
         ConfigurableApplicationContext context = SpringApplication.run(SpringBootDependencyInjectionDemoApplication.class, args);
 
+        // Get the bean for InjectToMe
+        InjectToMe injectToMe = context.getBean(InjectToMe.class);
+        System.out.println("> injectToMe: " + injectToMe);
+        injectToMe.printMessage();
+
         // Get the bean for InjectMe
         InjectMe injectMe = context.getBean(InjectMe.class);
         injectMe.setMessage("Custom text for injectMe");
         System.out.println("> injectMe: " + injectMe);
         injectMe.printMessage();
-
-        // Get the bean for InjectToMe
-        InjectToMe injectToMe = context.getBean(InjectToMe.class);
-        System.out.println("> injectToMe: " + injectToMe);
-        injectToMe.printMessage();
 
         // Get the bean for InjectMe
         // This should be the same as the first one
@@ -35,6 +35,11 @@ public class SpringBootDependencyInjectionDemoApplication {
         InjectMe injectMe2 = context.getBean(InjectMe.class);
         System.out.println("> injectMe2: " + injectMe2);
         injectMe2.printMessage();
+
+        // Get the bean for InjectToMe
+        InjectToMe injectToMe2 = context.getBean(InjectToMe.class);
+        System.out.println("> injectToMe2: " + injectToMe2);
+        injectToMe2.printMessage();
     }
 
 }
