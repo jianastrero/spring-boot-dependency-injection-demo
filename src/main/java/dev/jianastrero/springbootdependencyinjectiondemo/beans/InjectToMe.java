@@ -9,7 +9,7 @@ public class InjectToMe {
     @Autowired
     InjectMe injectMe;
 
-    private String message = "Hello World from InjectMe!";
+    private String message = "Hello World from InjectToMe!";
 
     public String getMessage() {
         return message;
