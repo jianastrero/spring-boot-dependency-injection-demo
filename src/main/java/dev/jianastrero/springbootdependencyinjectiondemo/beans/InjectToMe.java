@@ -6,6 +6,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class InjectToMe {
 
+    // This is a bean, it is a component that can be injected
+    // This is a singleton
+    // It is only created once
+    // And it is reused
     @Autowired
     InjectMe injectMe;
 
