@@ -20,7 +20,6 @@ public class InjectToMe {
     }
 
     public void printMessage() {
-        System.out.println("Hello World from InjectToMe!");
         System.out.println(message);
         injectMe.printMessage();
     }
