@@ -12,8 +12,61 @@ Spring Boot is a framework that allows you to build stand-alone, production-grad
 ## Components (Classes to be injected)
 * [InjectMe.java](src/main/java/dev/jianastrero/springbootdependencyinjectiondemo/beans/InjectMe.java)
   * Simple class that doesn't get another class injected to it
+  * <details>
+      <summary>InjectMe.java</summary>
+    ```java
+    import org.springframework.stereotype.Component;
+
+    @Component // This is a bean, it is a component that can be injected
+    public class InjectMe {
+
+        private String message = "Hello World from InjectMe!";
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+
+        public void printMessage() {
+            System.out.println(message);
+        }
+    }
+    ```
+    </details>
 * [InjectToMe.java](src/main/java/dev/jianastrero/springbootdependencyinjectiondemo/beans/InjectToMe.java)
   * Simple class that gets another class injected to it
+  * <details>
+      <summary>InjectToMe.java</summary>
+    ```java
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.stereotype.Component;
+  
+    @Component
+    public class InjectToMe {
+  
+        @Autowired
+        InjectMe injectMe;
+    
+        private String message = "Hello World from InjectToMe!";
+    
+        public String getMessage() {
+            return message;
+        }
+   
+        public void setMessage(String message) {
+            this.message = message;
+        }
+  
+        public void printMessage() {
+            System.out.println(message);
+            injectMe.printMessage();
+        }
+    }
+    ```
+    </details>
 
 ## Usage
 [SpringBootDependencyInjectionDemoApplication.java](src/main/java/dev/jianastrero/springbootdependencyinjectiondemo/SpringBootDependencyInjectionDemoApplication.java)
